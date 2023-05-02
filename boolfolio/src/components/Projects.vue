@@ -1,13 +1,18 @@
 <template>
     <div>
-        <p v-for="project in projects" :key="project.id">{{ project.title }}</p>
+        <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+
 
     </div>
 </template>
 <script>
 import axios from 'axios'
-export default (await import('vue')).defineComponent(
+import ProjectCard from './ProjectCard.vue'
+export default
     {
+        components: {
+            ProjectCard
+        },
         data() {
             return {
                 projects: []
@@ -32,10 +37,10 @@ export default (await import('vue')).defineComponent(
 
         },
         mounted() {
-            this.fetchProjects()
+            this.fetchProjects(this.project)
         },
     }
 
-)
+
 </script>
 <style lang="scss"></style>
