@@ -25,9 +25,11 @@ export default
 
 
                     .then(res => {
-                        console.log(res)
-                        const { projects } = res.data
-                        this.projects = projects
+                        // console.log(res)
+                        // const { projects } = res.data
+                        const results = res.data.results
+                        this.projects = results
+                        console.log(this.projects)
 
                     })
                     .catch(err => {
@@ -37,7 +39,7 @@ export default
 
         },
         mounted() {
-            this.fetchProjects(this.project)
+            this.fetchProjects()
         },
     }
 

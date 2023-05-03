@@ -4,6 +4,12 @@
         <p>{{ project.description }}</p>
         <p>{{ project.date }}</p>
         <a>{{ project.url }}</a>
+        <p>
+            {{ project.type ? project.type.name : 'non risulta' }}
+        </p>
+        <ul>
+            <li v-for="technology in project.technologies" :key="technology.id">{{ technology.name }}</li>
+        </ul>
     </div>
 </template>
   
@@ -15,9 +21,7 @@ export default {
             required: true
         }
     },
-    mounted() {
-        console.log(this.project)
-    },
+
 }
 </script>
   
